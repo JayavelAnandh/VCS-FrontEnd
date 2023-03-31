@@ -7,13 +7,15 @@ import ViewCommits from './components/ViewCommits';
 import CreateRepository from './components/CreateRepository';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
+import { useState } from 'react';
 
 
 function App() {
+
   return (
     
     <Routes>
-      <Route path='/' element={<HomePage/>}/>
+      <Route path='/' element={<HomePage />}/>
       <Route path='/editFile/:id' element={<EditFile/>}/>
       <Route path='/commits/:id'element={<ViewCommits/>}/>
       <Route path='/create'element={<CreateRepository/>}/>

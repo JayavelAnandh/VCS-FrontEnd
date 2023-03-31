@@ -19,7 +19,7 @@ const CreateRepository = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await fetch("http://localhost:5050/createRepo", {
+      const res = await fetch("https://versioner.vercel.app/createRepo", {
         method: "POST",
         body: JSON.stringify({
           repositoryName,

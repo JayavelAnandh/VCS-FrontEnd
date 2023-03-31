@@ -11,7 +11,7 @@ function EditFile() {
   }, []);
   const retriveData = async () => {
     try {
-      const res = await fetch(`http://localhost:5050/${id}`, {
+      const res = await fetch(`https://versioner.vercel.app/${id}`, {
         method: "GET",
       });
       const response = await res.json();
@@ -27,7 +27,7 @@ function EditFile() {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const res = await fetch(`http://localhost:5050/edit/${id}`, {
+      const res = await fetch(`https://versioner.vercel.app/edit/${id}`, {
         method: "PUT",
         body: JSON.stringify({ file: dataToEdit, commitedby: "User" }),
         headers: {

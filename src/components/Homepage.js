@@ -13,10 +13,10 @@ const HomePage = () => {
   useEffect(() => {
     retriveAllData();
   }, []);
-
+ 
   const retriveAllData = async () => {
     try {
-      const res = await fetch("http://localhost:5050/all/", {
+      const res = await fetch("https://versioner.vercel.app/all/", {
         method: "GET",
       });
       const response = await res.json();
@@ -29,7 +29,7 @@ const HomePage = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5050/remove/${id}`, {
+      const res = await fetch(`https://versioner.vercel.app/remove/${id}`, {
         method: "DELETE",
       });
       alert("SuceessFully Removed");
@@ -42,7 +42,7 @@ const HomePage = () => {
 
   const handleMove = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5050/previous/${id}`, {
+      const res = await fetch(`https://versioner.vercel.app/previous/${id}`, {
         method: "PUT",
       });
       retriveAllData();
@@ -87,13 +87,20 @@ const HomePage = () => {
             >
               <div className="card-body">
                 <h4 className="card-title">
+                  
+                  <u>
+                      <b>{value.repositoryName}</b>
+                  </u>
+                </h4>
+                <hr/>
+                <h6 className="card-subtitle mb-2 text-muted">
                   createdBy :{" "}
                   <u>
                     <i>
                       <b>{value.createdby}</b>
                     </i>
                   </u>
-                </h4>
+                </h6>
                 <h6 className="card-subtitle mb-2 text-muted">
                   createdAt :{" "}
                   <u>

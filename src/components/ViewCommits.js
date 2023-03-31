@@ -11,7 +11,7 @@ const ViewCommits = () => {
 
   const retriveAllData = async () => {
     try {
-      const res = await fetch(`http://localhost:5050/${id}`, {
+      const res = await fetch(`https://versioner.vercel.app/${id}`, {
         method: "GET",
       });
       const response = await res.json();
@@ -25,12 +25,15 @@ const ViewCommits = () => {
   return (
     <div className="container-lg">
       <div className="row">
+        {historyArray.commits}
         {historyArray.map((value, index) => {
           return (
             <div className="col-md-6 card" key={index}>
-              <div>Commit no:{index + 1}</div>
-              <hr />
-              <div>{value}</div>
+              
+              
+              <div><u>CommitedBy:{value.commitedby}</u></div><br/>
+              <div><u>CommitedAt:{value.commitedat}</u></div><hr />
+              <div>{value.commits}</div>
             </div>
           );
         })}
