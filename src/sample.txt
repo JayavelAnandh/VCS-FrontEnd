@@ -1,0 +1,42 @@
+// GET => /repository/02873403 => {} 
+// GET => /repository => []
+// POST => /repository { name: , userName: , content:}
+// PUT => /repository/02873403/commit { userName: , content:}
+// Path Parameter
+// Creation time => Initial Commit
+{
+    "__id": "02873403",
+    "repositoryName": "backend-codebase",
+    "createdBy": "Anand",
+    "createdAt": "1680067638",
+    "content" : "Initial Commit",
+    "history": [
+        {
+            "content": "Initial Commit",
+            "updatedBy": "Anand",
+            "updatedAt": "1680067638"
+        }
+    ]
+}
+
+// Updation Time => Second Commit by Surya
+
+{
+    "__id": "",
+    "repositoryName": "backend-codebase",
+    "createdBy": "Anand",
+    "createdAt": "1680067638",
+    "content" : "Second Commit",
+    "history": [
+        {
+            "content": "Second Commit",
+            "updatedBy": "Surya",
+            "updatedAt": "1680068063"
+        },
+        {
+            "content": "Initial Commit",
+            "updatedBy": "Anand",
+            "updatedAt": "1680067638"
+        }
+    ]
+}
