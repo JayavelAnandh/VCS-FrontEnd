@@ -71,7 +71,7 @@ const LogIn = () => {
         <button type="submit" className="btn btn-success">
           submit
         </button>
-        <h1 className="text-muted">Get Login Credentials in ReadMe</h1>
+        <h4 className="text-muted">Get Login Credentials in <a href="https://github.com/JayavelAnandh/VCS-FrontEnd#readme" target={"_blank"}>ReadMe...</a></h4>
       </form>
     </div>
   );

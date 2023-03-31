@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DashBoard from "./DashBoard";
+
 
 const CreateRepository = () => {
   const [file, setFile] = useState();
   const [repositoryName, setRepositoryName] = useState("");
-  const [createdby, setcreatedby] = useState("sample mw");
-  const [commitedby, setCommitedby] = useState("sample mw");
 
   const [allRepositories, setAllRepositories] = useState([]);
   const navigate = useNavigate();
   const resetForm = () => {
     setFile("");
     setRepositoryName("");
-    setcreatedby("sample mw");
     alert("Repository successfully created");
   };
 
@@ -23,9 +22,9 @@ const CreateRepository = () => {
         method: "POST",
         body: JSON.stringify({
           repositoryName,
-          createdby,
+          createdby:localStorage.getItem("userName"),
           file,
-          commitedby,
+          commitedby:localStorage.getItem("userName"),
         }),
         headers: {
           "Content-Type": "application/json",
@@ -41,7 +40,8 @@ const CreateRepository = () => {
     }
   };
   return (
-    <div>
+    <DashBoard>
+    <div className="createRepo">
       <form onSubmit={(event) => handleSubmit(event)}>
         <h1>Create a Repo:</h1>
         <div className="input-group mb-3">
@@ -52,7 +52,7 @@ const CreateRepository = () => {
           </div>
           <input
             type="text"
-            className="form-control"
+            className="form-control stringInput"
             placeholder="Repo Name"
             aria-label="Username"
             aria-describedby="basic-addon1"
@@ -72,9 +72,10 @@ const CreateRepository = () => {
             onChange={(event) => setFile(event.target.value)}
           ></textarea>
         </div>
-        <button type="submit">Add Repository</button>
+        <button className="btn btn-outline-success" type="submit">Add Repository</button>
       </form>
     </div>
+    </DashBoard>
   );
 };
 export default CreateRepository;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./All.css";
+import DashBoard from "./DashBoard";
 const HomePage = () => {
   const [file, setFile] = useState();
   const [repositoryName, setRepositoryName] = useState("");
@@ -11,6 +12,10 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if(!(localStorage.getItem("AuthToken"))){
+      navigate("/")
+      alert("Login to Continue")
+    }
     retriveAllData();
   }, []);
 
@@ -55,6 +60,7 @@ const HomePage = () => {
   };
 
   return (
+    <DashBoard>
     <div className="container-xl">
       <button
         type="button"
@@ -130,10 +136,12 @@ const HomePage = () => {
                 </button>
               </div>
             </div>
+            
           );
         })}
       </div>
     </div>
+    </DashBoard>
   );
 };
 export default HomePage;

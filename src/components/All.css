@@ -19,6 +19,7 @@
     font-size: xx-large;
     height: 40px;
     margin: 0%;
+    text-align: center;
  }
  .heading:hover{
     box-shadow: 0px 5px 10px grey;
@@ -29,4 +30,8 @@
 }
 .row{
     justify-content: center;
+}
+.createRepo{
+    justify-content: center;
+    text-align: center;
 }
