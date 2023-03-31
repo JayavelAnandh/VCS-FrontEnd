@@ -33,7 +33,7 @@ const CreateRepository = () => {
       });
 
       const response = await res.json();
-      navigate("/");
+      navigate("/homepage");
       resetForm();
     } catch (error) {
       console.log(error);

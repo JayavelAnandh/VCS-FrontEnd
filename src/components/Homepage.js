@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./All.css";
 const HomePage = () => {
   const [file, setFile] = useState();
   const [repositoryName, setRepositoryName] = useState("");
@@ -13,7 +13,7 @@ const HomePage = () => {
   useEffect(() => {
     retriveAllData();
   }, []);
- 
+
   const retriveAllData = async () => {
     try {
       const res = await fetch("https://versioner.vercel.app/all/", {
@@ -59,13 +59,6 @@ const HomePage = () => {
       <button
         type="button"
         className="btn btn-primary"
-        onClick={() => navigate("/signUp")}
-      >
-        SignUp
-      </button>
-      <button
-        type="button"
-        className="btn btn-primary"
         onClick={() => navigate("/logIn")}
       >
         LogIn
@@ -81,18 +74,14 @@ const HomePage = () => {
         {allRepositories.map((value, index) => {
           return (
             <div
-              className="col-lg-4 card "
+              className="col-lg-5 card box text-center "
               key={index}
               style={{ backgroundColor: "whitesmoke" }}
             >
+              <h4 className="heading">
+                <b>{value.repositoryName}</b>
+              </h4>
               <div className="card-body">
-                <h4 className="card-title">
-                  
-                  <u>
-                      <b>{value.repositoryName}</b>
-                  </u>
-                </h4>
-                <hr/>
                 <h6 className="card-subtitle mb-2 text-muted">
                   createdBy :{" "}
                   <u>
@@ -101,7 +90,7 @@ const HomePage = () => {
                     </i>
                   </u>
                 </h6>
-                <h6 className="card-subtitle mb-2 text-muted">
+                <h6 className="card-subtitle mb-2 text-muted ">
                   createdAt :{" "}
                   <u>
                     <i>
@@ -109,42 +98,35 @@ const HomePage = () => {
                     </i>
                   </u>
                 </h6>
-                <p
-                  style={{ backgroundColor: "burlywood" }}
-                  className="card-text"
-                >
-                  {value.file}
-                </p>
-                <p className="card-text">CommitedBy:{value.commitedby}</p>
-                <p className="card-text">commitedat:{value.commitedat}</p>
+                <p className="card-text">{value.file}</p>
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-outline-danger"
                   onClick={() => navigate(`/editFile/${value._id}`)}
                 >
                   Edit
                 </button>
                 <button
                   type="button"
-                  className="btn btn-danger"
-                  onClick={() => handleDelete(value._id)}
-                >
-                  Delete
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-warning"
+                  className="btn btn-outline-info"
                   onClick={() => handleMove(value._id)}
                 >
                   Move to Previous Commit
                 </button>
-
+                
                 <button
                   type="button"
-                  className="btn btn-info"
+                  className="btn btn-outline-info"
                   onClick={() => navigate(`/commits/${value._id}`)}
                 >
                   View Commit History
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-danger"
+                  onClick={() => handleDelete(value._id)}
+                >
+                  Delete
                 </button>
               </div>
             </div>

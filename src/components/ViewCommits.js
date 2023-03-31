@@ -33,7 +33,7 @@ const ViewCommits = () => {
               
               <div><u>CommitedBy:{value.commitedby}</u></div><br/>
               <div><u>CommitedAt:{value.commitedat}</u></div><hr />
-              <div>{value.commits}</div>
+              <div>{value.content}</div>
             </div>
           );
         })}
@@ -41,7 +41,7 @@ const ViewCommits = () => {
       <button
         type="button"
         className="btn btn-dark col-md-12"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/homepage")}
       >
         Back To HomePage
       </button>

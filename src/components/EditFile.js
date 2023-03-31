@@ -35,7 +35,7 @@ function EditFile() {
         },
       });
       alert("SuccessFully Updated");
-      navigate("/");
+      navigate("/homepage");
     } catch (error) {
       console.log(error);
       alert("error updating data");

@@ -1,0 +1,32 @@
+.box{
+    background: azure;
+    border: 1.5px solid gray;
+    font-size:larger;
+    margin: 10px;
+    border:1px solid rgb(46, 185, 210);
+}
+.card:hover{
+    box-shadow: 4px 3px 10px grey;
+}
+.btn{
+      margin: 5px;
+}
+.btn:hover{
+    box-shadow: 2px 2px 5px grey;
+}
+.heading{
+    background-color: rgb(46, 185, 210);
+    font-size: xx-large;
+    height: 40px;
+    margin: 0%;
+ }
+ .heading:hover{
+    box-shadow: 0px 5px 10px grey;
+ }
+.card-text{
+    border: 0.5px double rgb(46, 185, 210);
+    border-width: 2px;
+}
+.row{
+    justify-content: center;
+}

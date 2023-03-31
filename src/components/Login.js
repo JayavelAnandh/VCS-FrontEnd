@@ -1,31 +1,41 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+const LogIn = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    try {
+      event.preventDefault();
+    const res= await fetch("https://versioner.vercel.app/logIn",{
+      method:"POST",
+      body:JSON.stringify({
+        email,
+        password
+      }),
+      headers:{
+        "Content-Type": "application/json",
+      }
+    })
+    const response = await res.json();
+    localStorage.setItem("userName",response.userName);
+    localStorage.setItem("AuthToken",response.AuthToken);
+    alert(response.message);
+    navigate("/homepage")
+    } catch (error) {
+      console.log(error);
+      alert('Error occured Logging in')
+    }
+    
+
+
   };
   return (
     <div className="container-lg">
+      <h1>Login to Continue...</h1>
       <form onSubmit={(event) => handleSubmit(event)}>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Enter Username
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="eg:Robert"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-            value={userName}
-            onChange={(event) => setUserName(event.target.value)}
-          />
-        </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
@@ -45,7 +55,7 @@ const SignUp = () => {
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Create Password:
+              Enter Password:
             </span>
           </div>
           <input
@@ -61,8 +71,9 @@ const SignUp = () => {
         <button type="submit" className="btn btn-success">
           submit
         </button>
+        <h1 className="text-muted">Get Login Credentials in ReadMe</h1>
       </form>
     </div>
   );
 };
-export default SignUp;
+export default LogIn;
