@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const LogIn = () => {
   const [userName, setUserName] = useState("");
@@ -22,11 +23,11 @@ const LogIn = () => {
     const response = await res.json();
     localStorage.setItem("userName",response.userName);
     localStorage.setItem("AuthToken",response.AuthToken);
-    alert(response.message);
+    swal(response.message);
     navigate("/homepage")
     } catch (error) {
       console.log(error);
-      alert('Error occured Logging in')
+      swal('Error occured Logging in')
     }
     
 

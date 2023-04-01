@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import "./All.css";
 import DashBoard from "./DashBoard";
 const HomePage = () => {
@@ -14,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     if(!(localStorage.getItem("AuthToken"))){
       navigate("/")
-      alert("Login to Continue")
+      swal("Login to Continue")
     }
     retriveAllData();
   }, []);
@@ -28,7 +29,7 @@ const HomePage = () => {
       setAllRepositories(response);
     } catch (error) {
       console.log(error);
-      alert("error retriving data");
+      swal("error retriving data");
     }
   };
 
@@ -37,11 +38,11 @@ const HomePage = () => {
       const res = await fetch(`https://versioner.vercel.app/remove/${id}`, {
         method: "DELETE",
       });
-      alert("SuceessFully Removed");
+      swal("SuceessFully Removed");
       retriveAllData();
     } catch (error) {
       console.log(error);
-      alert("error removing data");
+      swal("error removing data");
     }
   };
 
@@ -52,10 +53,10 @@ const HomePage = () => {
       });
       retriveAllData();
       const responseReceieved = await res.json();
-      alert(responseReceieved.response);
+      swal(responseReceieved.response);
     } catch (error) {
       console.log(error);
-      alert("error reverting data");
+      swal("error reverting data");
     }
   };
 

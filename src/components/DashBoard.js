@@ -1,5 +1,6 @@
 import { AppBar, Toolbar,Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 
 function DashBoard ({title, description, children}) {
@@ -8,7 +9,7 @@ function DashBoard ({title, description, children}) {
     const logoutMethod = () => {
         localStorage.removeItem("userName");
         localStorage.removeItem("AuthToken");
-        alert("Logged Out")
+        swal("Logged Out")
         navigate("/");
         
     }

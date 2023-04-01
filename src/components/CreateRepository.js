@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import DashBoard from "./DashBoard";
 
 
@@ -12,7 +13,7 @@ const CreateRepository = () => {
   const resetForm = () => {
     setFile("");
     setRepositoryName("");
-    alert("Repository successfully created");
+    swal("Repository successfully created");
   };
 
   const handleSubmit = async (event) => {
@@ -36,7 +37,7 @@ const CreateRepository = () => {
       resetForm();
     } catch (error) {
       console.log(error);
-      alert("Error occured");
+      swal("Error occured");
     }
   };
   return (

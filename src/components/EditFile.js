@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import swal from "sweetalert";
 
 function EditFile() {
   const [dataToEdit, setDataToEdit] = useState("");
@@ -20,7 +21,7 @@ function EditFile() {
       }
     } catch (error) {
       console.log(error);
-      alert("error retriving data");
+      swal("error retriving data");
     }
   };
 
@@ -34,11 +35,11 @@ function EditFile() {
           "Content-Type": "application/json",
         },
       });
-      alert("SuccessFully Updated");
+      swal("SuccessFully Updated");
       navigate("/homepage");
     } catch (error) {
       console.log(error);
-      alert("error updating data");
+      swal("error updating data");
     }
   };
 

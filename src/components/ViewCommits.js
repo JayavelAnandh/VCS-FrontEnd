@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import swal from "sweetalert";
 import './All.css';
 const ViewCommits = () => {
   const { id } = useParams();
@@ -21,19 +22,11 @@ const ViewCommits = () => {
 
     } catch (error) {
       console.log(error);
-      alert("error retriving data");
+      swal("error retriving data");
     }
   };
 
-//   const getLocalTime=(time)=>{
-//     var startTime = new Date(time);
 
-//     startTime =   new Date( startTime.getTime() + ( startTime.getTimezoneOffset() * 60000 ) );
-
-//     setLocalTime(startTime);
-//     return startTime;
-
-//   }
   return (
     <div className="container-lg">
       <div className="row">
