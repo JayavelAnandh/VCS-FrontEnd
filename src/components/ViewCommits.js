@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import './All.css';
 const ViewCommits = () => {
   const { id } = useParams();
   const [historyArray, setHistoryArray] = useState([]);
@@ -44,12 +44,12 @@ const ViewCommits = () => {
            var localTime =(new Date(time.getTime() + ( time.getTimezoneOffset() * 60000 ))).toString()
           return (
             
-            <div className="col-md-6 card" key={index}>
+            <div className="col-md-12 commits " key={index}>
               
               
-              <div><u>CommitedBy:{value.commitedby}</u></div><br/>
-              <div ><u>CommitedAt:{localTime}</u></div><hr />
-              <div>{value.content}</div>
+              <div><span>CommitedBy: <b>  {value.commitedby}</b></span><span ><u> @ {localTime}</u></span></div>
+             <hr />
+              <div>Content:<div>{value.content}</div></div>
             </div>
           );
         })}

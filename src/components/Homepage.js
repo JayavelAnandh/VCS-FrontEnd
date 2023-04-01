@@ -78,6 +78,9 @@ const HomePage = () => {
       </button>
       <div className="row">
         {allRepositories.map((value, index) => {
+           var responseTime =value.createdat
+           var time = new Date(responseTime)
+           var localTime =(new Date(time.getTime() + ( time.getTimezoneOffset() * 60000 ))).toString()
           return (
             <div
               className="col-lg-5 card box text-center "
@@ -100,7 +103,7 @@ const HomePage = () => {
                   createdAt :{" "}
                   <u>
                     <i>
-                      <b>{value.createdat}</b>
+                      <b>{localTime}</b>
                     </i>
                   </u>
                 </h6>

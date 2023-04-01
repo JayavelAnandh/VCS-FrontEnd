@@ -44,7 +44,8 @@ function DashBoard ({title, description, children}) {
                </Toolbar>
             </AppBar>
             <header>
-               <h1 className='heading'><marquee>VERSIONER</marquee> </h1>
+               <h1 className='heading'>VERSIONER </h1>
+               <p className="description"><marquee>A small scale version control system</marquee></p>
             </header>
             <main className='main-segment'>
                <h2>{description}</h2>
