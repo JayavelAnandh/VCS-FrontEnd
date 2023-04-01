@@ -29,7 +29,7 @@ const HomePage = () => {
       setAllRepositories(response);
     } catch (error) {
       console.log(error);
-      swal("error retriving data");
+      swal({title:"error retriving data",dangerMode:true});
     }
   };
 
@@ -42,7 +42,7 @@ const HomePage = () => {
       retriveAllData();
     } catch (error) {
       console.log(error);
-      swal("error removing data");
+      swal({title:"error removing data",dangerMode:true});
     }
   };
 
@@ -53,7 +53,7 @@ const HomePage = () => {
       });
       retriveAllData();
       const responseReceieved = await res.json();
-      swal(responseReceieved.response);
+      swal({title:responseReceieved.response,dangerMode:true});
     } catch (error) {
       console.log(error);
       swal("error reverting data");
