@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import swal from "sweetalert";
-
+import DashBoard from "./DashBoard";
+import './cssFiles/EditFile.css'
 function EditFile() {
   const [dataToEdit, setDataToEdit] = useState("");
   const navigate = useNavigate();
@@ -44,18 +45,21 @@ function EditFile() {
   };
 
   return (
+    <DashBoard>
     <div className="container-lg">
+      <h4>Edit (or) Paste your New code:</h4>
       <form className="row" onSubmit={(event) => handleSubmit(event)}>
-        <input
-          className="col-lg-10"
+        <textarea
+          className="col-lg-10 inputBar form-control"
           value={dataToEdit}
           onChange={(event) => setDataToEdit(event.target.value)}
         />
-        <button className="col-lg-3 btn btn-success" type="submit">
+        <button className="col-lg-3 btn btn-outline-success mt-3" type="submit">
           Save Changes
         </button>
       </form>
     </div>
+    </DashBoard>
   );
 }
 export default EditFile;

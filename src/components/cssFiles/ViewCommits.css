@@ -1,0 +1,31 @@
+.commits{
+    border: 0.1px solid black;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 10px;
+    background-color: burlywood;
+    margin: 1px;
+    
+}
+.localTime{
+    font-style: oblique;
+    font-size:15px;
+
+}
+.content{
+    border: 1px solid gray;
+    border-top-width: 5px;
+    border-left-width: 5px;
+    background-color: bisque;
+    padding: 10px;
+    
+}
+.content:hover{
+    border-bottom-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    font-size: larger;
+}
+.biggerFont{
+    font-size: larger;
+}

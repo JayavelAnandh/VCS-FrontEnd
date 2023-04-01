@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import swal from "sweetalert";
-import './All.css';
+import './cssFiles/ViewCommits.css'
 const ViewCommits = () => {
   const { id } = useParams();
   const [historyArray, setHistoryArray] = useState([]);
@@ -39,17 +39,17 @@ const ViewCommits = () => {
             
             <div className="col-md-12 commits " key={index}>
               
+              <div><u><h3>Content:</h3></u><div className="content"> {value.content}</div></div><hr />
+              <div><span><b> CommitedBy:  <span className="biggerFont">{value.commitedby }</span> </b></span>@<span className="localTime" ><u>  {localTime}</u></span></div>
+             
               
-              <div><span>CommitedBy: <b>  {value.commitedby}</b></span><span ><u> @ {localTime}</u></span></div>
-             <hr />
-              <div>Content:<div>{value.content}</div></div>
             </div>
           );
         })}
       </div>
       <button
         type="button"
-        className="btn btn-dark col-md-12"
+        className="btn btn-outline-dark col-12"
         onClick={() => navigate("/homepage")}
       >
         Back To HomePage

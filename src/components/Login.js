@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-
+import './cssFiles/Login.css'
+import 'animate.css';
 const LogIn = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,8 +36,9 @@ const LogIn = () => {
   };
   return (
     <div className="container-lg">
-      <h1>Login to Continue...</h1>
-      <form onSubmit={(event) => handleSubmit(event)}>
+      <h1 className="greet"> Welcome to "VERSIONER"</h1>
+      <h3>Login to Continue...</h3>
+      <form onSubmit={(event) => handleSubmit(event)} className="form">
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">

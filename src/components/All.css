@@ -31,18 +31,7 @@
 .row{
     justify-content: center;
 }
-.createRepo{
-    justify-content: center;
-    text-align: center;
-}
 .description:hover{
     background-color: black;
     color:white
-}
-.commits{
-    border: 0.1px solid black;
-    border-bottom-right-radius: 50px;
-    border-top-right-radius: 10px;
-
-    margin: 1px;
 }

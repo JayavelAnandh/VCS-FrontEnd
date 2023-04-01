@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import DashBoard from "./DashBoard";
-
+import './cssFiles/CreateRepository.css'
 
 const CreateRepository = () => {
   const [file, setFile] = useState();
@@ -44,16 +44,16 @@ const CreateRepository = () => {
     <DashBoard>
     <div className="createRepo">
       <form onSubmit={(event) => handleSubmit(event)}>
-        <h1>Create a Repo:</h1>
+        <h1>Create a Repo</h1>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Name your Repository
+              <h5>Name your Repository:</h5>
             </span>
           </div>
           <input
             type="text"
-            className="form-control stringInput"
+            className="form-control "
             placeholder="Repo Name"
             aria-label="Username"
             aria-describedby="basic-addon1"
@@ -63,7 +63,7 @@ const CreateRepository = () => {
         </div>
         <div className="input-group">
           <div className="input-group-prepend">
-            <span className="input-group-text">Paste your file</span>
+            <span className="input-group-text"><h5>Paste your file:</h5></span>
           </div>
           <textarea
             className="form-control"
