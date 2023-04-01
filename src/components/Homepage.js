@@ -63,20 +63,6 @@ const HomePage = () => {
   return (
     <DashBoard>
     <div className="container-xl">
-      <button
-        type="button"
-        className="btn btn-primary"
-        onClick={() => navigate("/logIn")}
-      >
-        LogIn
-      </button>
-      <button
-        type="button"
-        className="btn btn-primary"
-        onClick={() => navigate("/create")}
-      >
-        Create New Repository
-      </button>
       <div className="row">
         {allRepositories.map((value, index) => {
            var responseTime =value.createdat
