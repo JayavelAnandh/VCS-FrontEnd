@@ -62,7 +62,7 @@ const HomePage = () => {
 
   return (
     <DashBoard>
-      <div className="container-xl homepageBG">
+      <div className="container-fluid homepageBG">
         <div className="row ">
           {allRepositories.map((value, index) => {
             var responseTime = value.createdat;
@@ -106,14 +106,14 @@ const HomePage = () => {
                     className="btn btn-outline-danger"
                     onClick={() => navigate(`/editFile/${value._id}`)}
                   >
-                    Edit
+                    <i className="fa-solid fa-pencil"></i> Edit
                   </button>
                   <button
                     type="button"
                     className="btn btn-outline-info"
                     onClick={() => handleMove(value._id)}
                   >
-                    Move to Previous Commit
+                    <i class="fa-solid fa-repeat"></i> Move to Previous Commit
                   </button>
 
                   <button
@@ -121,14 +121,14 @@ const HomePage = () => {
                     className="btn btn-outline-info"
                     onClick={() => navigate(`/commits/${value._id}`)}
                   >
-                    View Commit History
+                    View Commit History <i class="fa-solid fa-eye"></i>
                   </button>
                   <button
                     type="button"
                     className="btn btn-outline-danger"
                     onClick={() => handleDelete(value._id)}
                   >
-                    Delete
+                    Delete <i class="fa-solid fa-trash"></i>
                   </button>
                 </div>
               </div>

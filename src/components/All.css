@@ -48,4 +48,6 @@
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT4y8Win3TmHhpUoBG6KX3JpNZTPMnLN3sZDVrGuXzAX1cJDn87RzKg_RbolNs0V6n04s&usqp=CAU");
     background-size: cover;
     background-repeat: no-repeat;
+    height: 85vh;
+    padding-top: 1%;
 }
