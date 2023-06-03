@@ -13,9 +13,9 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!(localStorage.getItem("AuthToken"))){
-      navigate("/")
-      swal("Login to Continue")
+    if (!localStorage.getItem("AuthToken")) {
+      navigate("/");
+      swal("Login to Continue");
     }
     retriveAllData();
   }, []);
@@ -29,7 +29,7 @@ const HomePage = () => {
       setAllRepositories(response);
     } catch (error) {
       console.log(error);
-      swal({title:"error retriving data",dangerMode:true});
+      swal({ title: "error retriving data", dangerMode: true });
     }
   };
 
@@ -42,7 +42,7 @@ const HomePage = () => {
       retriveAllData();
     } catch (error) {
       console.log(error);
-      swal({title:"error removing data",dangerMode:true});
+      swal({ title: "error removing data", dangerMode: true });
     }
   };
 
@@ -53,7 +53,7 @@ const HomePage = () => {
       });
       retriveAllData();
       const responseReceieved = await res.json();
-      swal({title:responseReceieved.response,dangerMode:true});
+      swal({ title: responseReceieved.response, dangerMode: true });
     } catch (error) {
       console.log(error);
       swal("error reverting data");
@@ -62,75 +62,80 @@ const HomePage = () => {
 
   return (
     <DashBoard>
-    <div className="container-xl">
-      <div className="row">
-        {allRepositories.map((value, index) => {
-           var responseTime =value.createdat
-           var time = new Date(responseTime)
-           var localTime =(new Date(time.getTime() + ( time.getTimezoneOffset() * 60000 ))).toString()
-          return (
-            <div
-              className="col-lg-5 card box text-center "
-              key={index}
-              style={{ backgroundColor: "whitesmoke" }}
-            >
-              <h4 className="heading">
-                <b>{value.repositoryName}</b>
-              </h4>
-              <div className="card-body">
-                <h6 className="card-subtitle mb-2 text-muted">
-                  createdBy :{" "}
-                  <u>
-                    <i>
-                      <b>{value.createdby}</b>
-                    </i>
-                  </u>
-                </h6>
-                <h6 className="card-subtitle mb-2 text-muted ">
-                  createdAt :{" "}
-                  <u>
-                    <i>
-                      <b>{localTime}</b>
-                    </i>
-                  </u>
-                </h6>
-                <p className="card-text">{value.file}</p>
-                <button
-                  type="button"
-                  className="btn btn-outline-danger"
-                  onClick={() => navigate(`/editFile/${value._id}`)}
-                >
-                  Edit
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-info"
-                  onClick={() => handleMove(value._id)}
-                >
-                  Move to Previous Commit
-                </button>
-                
-                <button
-                  type="button"
-                  className="btn btn-outline-info"
-                  onClick={() => navigate(`/commits/${value._id}`)}
-                >
-                  View Commit History
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-danger"
-                  onClick={() => handleDelete(value._id)}
-                >
-                  Delete
-                </button>
+      <div className="container-xl homepageBG">
+        <div className="row ">
+          {allRepositories.map((value, index) => {
+            var responseTime = value.createdat;
+            var time = new Date(responseTime);
+            var localTime = new Date(
+              time.getTime() + time.getTimezoneOffset() * 60000
+            )
+              .toString()
+              .split(" ", 5)
+              .join(" ");
+
+            return (
+              <div
+                className="col-lg-5 card box text-center "
+                key={index}
+                style={{ backgroundColor: "whitesmoke" }}
+              >
+                <h4 className="heading">
+                  <b>{value.repositoryName}</b>
+                </h4>
+                <div className="card-body">
+                  <h6 className="card-subtitle mb-2 text-muted">
+                    createdBy :{" "}
+                    <u>
+                      <i>
+                        <b>{value.createdby}</b>
+                      </i>
+                    </u>
+                  </h6>
+                  <h6 className="card-subtitle mb-2 text-muted ">
+                    createdAt :{" "}
+                    <u>
+                      <i>
+                        <b>{localTime}</b>
+                      </i>
+                    </u>
+                  </h6>
+                  <p className="card-text">{value.file}</p>
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger"
+                    onClick={() => navigate(`/editFile/${value._id}`)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-info"
+                    onClick={() => handleMove(value._id)}
+                  >
+                    Move to Previous Commit
+                  </button>
+
+                  <button
+                    type="button"
+                    className="btn btn-outline-info"
+                    onClick={() => navigate(`/commits/${value._id}`)}
+                  >
+                    View Commit History
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger"
+                    onClick={() => handleDelete(value._id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-            </div>
-            
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
     </DashBoard>
   );
 };

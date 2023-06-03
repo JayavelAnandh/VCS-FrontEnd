@@ -1,37 +1,51 @@
-.box{
+.box {
     background: azure;
     border: 1.5px solid gray;
-    font-size:larger;
+    font-size: larger;
     margin: 10px;
-    border:1px solid rgb(46, 185, 210);
+    border: 1px solid rgb(46, 185, 210);
 }
-.card:hover{
+
+.card:hover {
     box-shadow: 4px 3px 10px grey;
 }
-.btn{
-      margin: 5px;
+
+.btn {
+    margin: 5px;
 }
-.btn:hover{
+
+.btn:hover {
     box-shadow: 2px 2px 5px grey;
 }
-.heading{
+
+.heading {
     background-color: rgb(46, 185, 210);
     font-size: xx-large;
     height: 40px;
     margin: 0%;
     text-align: center;
- }
- .heading:hover{
+}
+
+.heading:hover {
     box-shadow: 0px 5px 10px grey;
- }
-.card-text{
+}
+
+.card-text {
     border: 0.5px double rgb(46, 185, 210);
     border-width: 2px;
 }
-.row{
+
+.row {
     justify-content: center;
 }
-.description:hover{
+
+.description:hover {
     background-color: black;
-    color:white
+    color: white
+}
+
+.homepageBG {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT4y8Win3TmHhpUoBG6KX3JpNZTPMnLN3sZDVrGuXzAX1cJDn87RzKg_RbolNs0V6n04s&usqp=CAU");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
