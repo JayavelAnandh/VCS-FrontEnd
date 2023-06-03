@@ -18,12 +18,12 @@ function DashBoard({ title, description, children }) {
         <Toolbar variant="dense">
           <Button color="inherit" onClick={() => navigate("/homepage")}>
             <span className="nav-name">
-              HomePage <i class="fa-solid fa-house"></i>
+              HomePage <i className="fa-solid fa-house"></i>
             </span>
           </Button>
           <Button color="inherit" onClick={() => navigate("/create")}>
             <span className="nav-name">
-              Create New Repository <i class="fa-solid fa-plus"></i>
+              Create New Repository <i className="fa-solid fa-plus"></i>
             </span>
           </Button>
 

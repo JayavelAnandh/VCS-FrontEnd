@@ -1,10 +1,41 @@
-.createRepo{
+.newRepoPage {
+    height: 85vh;
+    background: url("https://i.pinimg.com/736x/6f/6b/36/6f6b36af5d9f5ad13ff756c50ca1686a.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
     justify-content: center;
-    text-align: center;
+    padding-top: 2%;
 }
-h1{
-    font-style: oblique;
+
+.newRepoPage .row {
+    width: 70%;
+    height: 100%;
 }
-h5{
-    font-style: italic;
+
+.newRepoPage .row form {
+    flex-direction: column;
+}
+
+.newRepoPage .row form .buttonAlign {
+    display: flex;
+    justify-content: center;
+}
+
+.newRepoPage .row form .buttonAlign button {
+    box-shadow: 0px 0px 3px 3px black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.newRepoPage .row form .buttonAlign button:hover {
+    box-shadow: 0px 0px 3px 3px white;
+}
+
+.newRepoPage .row form label {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 5px double white;
+    margin-bottom: 2%;
 }

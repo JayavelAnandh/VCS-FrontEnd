@@ -4,11 +4,6 @@ import swal from "sweetalert";
 import "./All.css";
 import DashBoard from "./DashBoard";
 const HomePage = () => {
-  const [file, setFile] = useState();
-  const [repositoryName, setRepositoryName] = useState("");
-  const [createdby, setcreatedby] = useState("sample mw");
-  const [commitedby, setCommitedby] = useState("sample mw");
-
   const [allRepositories, setAllRepositories] = useState([]);
   const navigate = useNavigate();
 
@@ -64,76 +59,81 @@ const HomePage = () => {
     <DashBoard>
       <div className="container-fluid homepageBG">
         <div className="row ">
-          {allRepositories.map((value, index) => {
-            var responseTime = value.createdat;
-            var time = new Date(responseTime);
-            var localTime = new Date(
-              time.getTime() + time.getTimezoneOffset() * 60000
-            )
-              .toString()
-              .split(" ", 5)
-              .join(" ");
+          {allRepositories ? (
+            allRepositories.map((value, index) => {
+              var responseTime = value.createdat;
+              var time = new Date(responseTime);
+              var localTime = new Date(
+                time.getTime() + time.getTimezoneOffset() * 60000
+              )
+                .toString()
+                .split(" ", 5)
+                .join(" ");
 
-            return (
-              <div
-                className="col-lg-5 card box text-center "
-                key={index}
-                style={{ backgroundColor: "whitesmoke" }}
-              >
-                <h4 className="heading">
-                  <b>{value.repositoryName}</b>
-                </h4>
-                <div className="card-body">
-                  <h6 className="card-subtitle mb-2 text-muted">
-                    createdBy :{" "}
-                    <u>
-                      <i>
-                        <b>{value.createdby}</b>
-                      </i>
-                    </u>
-                  </h6>
-                  <h6 className="card-subtitle mb-2 text-muted ">
-                    createdAt :{" "}
-                    <u>
-                      <i>
-                        <b>{localTime}</b>
-                      </i>
-                    </u>
-                  </h6>
-                  <p className="card-text">{value.file}</p>
-                  <button
-                    type="button"
-                    className="btn btn-outline-danger"
-                    onClick={() => navigate(`/editFile/${value._id}`)}
-                  >
-                    <i className="fa-solid fa-pencil"></i> Edit
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-outline-info"
-                    onClick={() => handleMove(value._id)}
-                  >
-                    <i class="fa-solid fa-repeat"></i> Move to Previous Commit
-                  </button>
+              return (
+                <div
+                  className="col-lg-5 card box text-center "
+                  key={index}
+                  style={{ backgroundColor: "whitesmoke" }}
+                >
+                  <h4 className="heading">
+                    <b>{value.repositoryName}</b>
+                  </h4>
+                  <div className="card-body">
+                    <h6 className="card-subtitle mb-2 text-muted">
+                      createdBy :{" "}
+                      <u>
+                        <i>
+                          <b>{value.createdby}</b>
+                        </i>
+                      </u>
+                    </h6>
+                    <h6 className="card-subtitle mb-2 text-muted ">
+                      createdAt :{" "}
+                      <u>
+                        <i>
+                          <b>{localTime}</b>
+                        </i>
+                      </u>
+                    </h6>
+                    <p className="card-text">{value.file}</p>
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger"
+                      onClick={() => navigate(`/editFile/${value._id}`)}
+                    >
+                      <i className="fa-solid fa-pencil"></i> Edit
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-info"
+                      onClick={() => handleMove(value._id)}
+                    >
+                      <i className="fa-solid fa-repeat"></i> Move to Previous
+                      Commit
+                    </button>
 
-                  <button
-                    type="button"
-                    className="btn btn-outline-info"
-                    onClick={() => navigate(`/commits/${value._id}`)}
-                  >
-                    View Commit History <i class="fa-solid fa-eye"></i>
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-outline-danger"
-                    onClick={() => handleDelete(value._id)}
-                  >
-                    Delete <i class="fa-solid fa-trash"></i>
-                  </button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-info"
+                      onClick={() => navigate(`/commits/${value._id}`)}
+                    >
+                      View Commit History <i className="fa-solid fa-eye"></i>
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger"
+                      onClick={() => handleDelete(value._id)}
+                    >
+                      Delete <i className="fa-solid fa-trash"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <div style={{ color: "white" }}> Loading ... </div>
+          )}
         </div>
       </div>
     </DashBoard>

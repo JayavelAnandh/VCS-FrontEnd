@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import DashBoard from "./DashBoard";
-import './cssFiles/CreateRepository.css'
+import "./cssFiles/CreateRepository.css";
 
 const CreateRepository = () => {
   const [file, setFile] = useState();
@@ -23,9 +23,9 @@ const CreateRepository = () => {
         method: "POST",
         body: JSON.stringify({
           repositoryName,
-          createdby:localStorage.getItem("userName"),
+          createdby: localStorage.getItem("userName"),
           file,
-          commitedby:localStorage.getItem("userName"),
+          commitedby: localStorage.getItem("userName"),
         }),
         headers: {
           "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const CreateRepository = () => {
   };
   return (
     <DashBoard>
-    <div className="createRepo">
+      {/* <div className="createRepo">
       <form onSubmit={(event) => handleSubmit(event)}>
         <h1>Create a Repo</h1>
         <div className="input-group mb-3">
@@ -75,7 +75,42 @@ const CreateRepository = () => {
         </div>
         <button className="btn btn-outline-success" type="submit">Add Repository</button>
       </form>
-    </div>
+    </div> */}
+      <div className="container-fluid newRepoPage">
+        <div className="row">
+          <form>
+            <label htmlFor="repoName">Name :</label>
+            <input
+              type="text"
+              id="repoName"
+              name="repoName"
+              value={repositoryName}
+              placeholder="NAME YOUR REPOSITORY"
+              onChange={(event) => setRepositoryName(event.target.value)}
+            />
+            <br />
+
+            <label htmlFor="file"> Paste Your File Here :</label>
+            <textarea
+              type="text"
+              id="file"
+              name="file"
+              value={file}
+              placeholder="PASTE OR WRITE YOUR FILE HERE!!"
+              onChange={(event) => setFile(event.target.value)}
+              style={{ height: "40vh" }}
+            />
+
+            <br />
+
+            <div className="buttonAlign">
+              <button className="buttons btn btn-outline-dark">
+                Create New Repository
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </DashBoard>
   );
 };
